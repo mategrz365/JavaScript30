@@ -1,6 +1,5 @@
 document.addEventListener(`DOMContentLoaded`, function () {
 
-
     function playSound(e) {
         let btn = e.keyCode;
         const audio = document.querySelector(`audio[data-key="${btn}"]`);
@@ -14,15 +13,10 @@ document.addEventListener(`DOMContentLoaded`, function () {
     function removeTransition(e) {
         if (e.propertyName !== `transform`) return;
         this.classList.remove(`is-playing`);
-
-
     }
 
     var keys = document.querySelectorAll(`.key`);
     keys.forEach(key => key.addEventListener(`transitionend`, removeTransition))
 
     window.addEventListener(`keydown`, playSound);
-
-
-
 });

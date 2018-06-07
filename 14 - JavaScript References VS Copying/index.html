@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+</head>
+<body>
+
+  <script>
+    // start with strings, numbers and booleans
+      
+          /*    let number1 = 100;
+              let number2 = number1;
+              console.log(number1, number2);
+              number1 = 200;
+              console.log(number1, number2);*/
+
+    // Array
+      
+        /*const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+        const players2 = players;*/
+      
+        /*  console.log(players, players2);
+            players.push('Joe');
+            console.log(players, players2);*/
+
+      // Copy method, the original table doesn't change (slice(), concat(), spread - ES6, Array.from())
+      
+            /*  const team1 = players.slice();
+                console.log(team1);
+                team1[3] = 'Joe';
+                console.log(players);
+                console.log(team1);*/
+
+            /*  const team3 = ['Ross'].concat(players);
+                console.log(team3);*/
+
+                /*const team2 = [...players];
+                console.log(team2);
+
+                const team4 = Array.from(players);
+                console.log(team4);*/
+
+   // Object
+            const person = {
+              name: 'Wes Bos',
+              age: 80
+            };
+      
+            const captain = person;
+            captain.age = 81;
+            
+            console.log(person.age); 
+      
+        //copy method, Object.assign(), spread - ES6, one level deep!
+      
+            const player = Object.assign({},person,{number:'10', position: 'goalkeeper'});
+            console.log(player);
+      
+            const student = {...person};
+            student.age = 21;
+            console.log(student);
+      
+      const mat = {
+          name: 'Mat',
+          age:20,
+          socials:{
+              twitter: {
+                    friends: 200,
+                    likes: 500
+                },
+              facebook: 'fb',
+              instagram: 'in'
+          }
+      }      
+      
+      const mat2 = {...mat};
+      console.log(mat2);
+      
+      const mat3 = Object.assign({}, mat);
+      console.log(mat3);
+      
+      mat3.socials.twitter.friends = 4000; // one level deep! mat is changed
+      
+      const mat4 = JSON.parse(JSON.stringify(mat));  
+        </script>
+
+</body>
+</html>
